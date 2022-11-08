@@ -94,7 +94,7 @@
 
                         <form action="#" class="narrow-w form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
                           <input type="text" class="form-control px-4" placeholder="Types your City. e.g : Vegas"/>
-                          <button type="submit" class="btn btn-primary" style="border-radius:50px;">Search</button>
+                          <button type="submit" class="btn btn-primary" style="border-radius:50px;"><i class="fa fa-search"></i> </button>
                         </form>
                       
                       </div>
