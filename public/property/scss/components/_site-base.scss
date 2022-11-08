@@ -1,0 +1,75 @@
+html {
+	overflow-x: hidden;
+}
+body {
+	font-family: $font-family-sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	overflow-x: hidden;
+	@extend .text-black-50;
+
+	&:before {
+		content: "";
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 9;
+		background-color: rgba($black, .5);
+		transition: .3s all ease;
+		opacity: 0;
+		visibility: hidden;
+	}
+	&.offcanvas-menu {
+		&:before {
+			opacity: 1;
+			visibility: visible;
+		}
+
+	}
+
+}
+h1, h2, h3, h4, h5, .logo {
+	font-family: $font-family-sans-serif-secondary;
+	color: $primary;
+}
+a {
+	transition: .3s all ease;
+	text-decoration: none;
+}
+
+.form-control {
+	font-size: 16px;
+	height: 52px;
+	padding-left: 15px;
+	padding-right: 15px;
+	&:hover, &:active, &:focus {
+		outline: none;
+		box-shadow: none;
+	}
+}
+textarea {
+	height: auto!important;
+}
+
+// PRELOADER STYLE
+#overlayer {
+	width:100%;
+	height:100%;  
+	position:fixed;
+	z-index:7100;
+	background: $white;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.loader {
+	z-index:7700;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
