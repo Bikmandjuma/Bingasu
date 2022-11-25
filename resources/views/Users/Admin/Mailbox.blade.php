@@ -143,7 +143,7 @@
                     <?php
                     	if ($data->unread ==  "read") {
                     		?>
-                    			<td class="mailbox-name"><a href="{{url('admin/read/mail')}}/{{$data->id}}/{{$data->email}}" style="color:black;">{{$data->name}}</a></td>
+                    			<td class="mailbox-name"><a href="{{url('admin/read/mail')}}/{{Crypt::encryptString($data->email)}}/{{Crypt::encryptString($data->id)}}" style="color:black;">{{$data->name}}</a></td>
                     		<?php
                     	}else{
                     		?>
