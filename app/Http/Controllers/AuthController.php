@@ -33,7 +33,7 @@ class AuthController extends Controller{
 
      public function GetLogin()
     {
-        return view('auth.login');
+        return view('Auth.login');
     }
 
     public function PostLogin(Request $request)

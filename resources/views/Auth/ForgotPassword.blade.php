@@ -1,4 +1,4 @@
-@extends('auth.cover')
+@extends('Auth.cover')
 @section('content')
 
 <div id="login-page">
