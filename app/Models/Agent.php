@@ -20,6 +20,7 @@ class Agent extends Authenticatable
         'gender',
         'phone',
         'email',
+        'image',
         'nationality',
         'password',
     ];

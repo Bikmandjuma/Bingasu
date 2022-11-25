@@ -7,7 +7,7 @@
 	<div class="col-md-12">
 		<div class="card">
 			<div class="card-header text-center bg-info">Address,contact and social-media</div>
-			<div class="card-body" style="overflow:auto;">
+			<div class="card-body" id="agents_data">
 				<table class="table table-bordered table-striped">
 					<thead>
 						<tr>

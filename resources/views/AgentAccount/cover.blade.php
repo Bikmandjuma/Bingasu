@@ -80,6 +80,13 @@
 
 </div>
 
+ <script>
+        var blink = document.getElementById('blink');
+        setInterval(function() {
+          blink.style.opacity = (blink.style.opacity == 0 ? 1 : 0);
+        }, 1000); 
+    </script>
+
 <!-- jQuery -->
 <script src="/style/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -112,23 +119,6 @@
 <script src="/style/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE../ App -->
 <script src="/style/dist/js/adminlte.js"></script>
-
-<script>
-      $(function () {
-        // Summernote
-        $('#summernote').summernote()
-
-        // CodeMirror
-        CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
-          mode: "htmlmixed",
-          theme: "monokai"
-        });
-      })
-</script>
-
-<!-- AdminLTE for demo purposes >
-<script src="../dist/js/demo.js"></script-->
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/style/dist/js/pages/dashboard.js"></script>
 </body>
 </html>

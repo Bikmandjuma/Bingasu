@@ -1,31 +1,13 @@
 <?php 
-use App\Models\Agent;
-use App\Models\Customer;
-use App\Models\Contact;
-
-//Counts number of agents
-$agent=Agent::all();
-$agent_count=collect($agent)->count();
-
-//Counts number of customers
-$customer=Customer::all();
-$customer_count=collect($customer)->count();
-
-//Contact mailbox
-$mail=Contact::all()->where('deleted',null)->where('unread',null);
-$mail_count=collect($mail)->count();
-
-//encription of admin id
-$rand=rand(100000,1000000);
-$id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
-
+$rand=rand(10000,100000);
+$id=md5(auth()->guard('agent')->user()->id.$rand);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{config('app.name', '')}}</title>
+  <title>{{config('app.name','')}}</title>
     <link href="/style/dist/img/favicon.png" rel="icon">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -58,23 +40,6 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
   <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
   <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
-
-  <style type="text/css">
-  .alert{padding: 15px;margin-bottom: 20px;border-radius: 4px;color: #fff;text-transform: uppercase;font-size: 12px}.alert_info{background-color: #4285f4;border: 2px solid #4285f4}button.close{-webkit-appearance: none;padding: 0;cursor: pointer;background: 0 0;border: 0}.close{font-size: 20px;color: #fff;opacity: 0.9;}.alert_success{background-color: #09c97f;border: 2px solid #09c97f}.alert_warning{background-color: #f8b15d;border: 2px solid #f8b15d}.alert_error{background-color: #f95668;border: 2px solid #f95668}.fade_info{background-color: #d9e6fb;border: 1px solid #4285f4}.fade_info .close{color: #4285f4}.fade_info strong{color: #4285f4}.fade_success{background-color: #c9ffe5;border: 1px solid #09c97f}.fade_success .close{color: #09c97f}.fade_success strong{color: #09c97f}.fade_warning{background-color: #fff0cc;border: 1px solid #f8b15d}.fade_warning .close{color: #f8b15d}.fade_warning strong{color: #f8b15d}.fade_error{background-color: #ffdbdb;border: 1px solid #f95668}.fade_error .close{color: #f95668}.fade_error strong{color: #f95668}
-
-    #agents_data{
-      overflow: auto;
-    }
-
-    ::-webkit-scrollbar{
-      display: none;
-    };
-
-     #my_data p{
-        display: inline-block;
-    }
-
- </style>
    
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -82,16 +47,16 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
 <div class="wrapper">
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand" style="margin-top:-25px;">
+  <nav class="main-header navbar navbar-expand navbar-info navbar-light" style="margin-top:-25px;">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        <a class="nav-link text-white" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
     </ul>
 
     <div class="rowtext-center">
-      <div class="col-md-12">Admin Panel</div>
+      <div class="col-md-12">Properties Owner Panel</div>
     </div>
 
     <!-- Right navbar links -->
@@ -99,13 +64,13 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
       <!-- Navbar Search -->
       <li class="nav-item">
         <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search"></i>
+          <i class="fas fa-search text-white"></i>
         </a>
         <div class="navbar-search-block">
           <form class="form-inline">
             <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-              <div class="input-group-append bg-info text-white">
+              <input class="form-control form-control-navbar w3-white" type="search" placeholder="Search" aria-label="Search">
+              <div class="input-group-append">
                 <button class="btn btn-navbar" type="submit">
                   <i class="fas fa-search"></i>
                 </button>
@@ -169,7 +134,7 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
             <img src="{{URL::to('/')}}/style/dist/img/user.png" class="img-circle elevation-2" alt="User Image" style="width:40px;height:40px;border-radius:50%;">
         </div>
         <div class="info" style="font-style:20px;font-family:sans-serif;">
-          <b><a href="#" class="d-block">{{auth()->guard('admin')->user()->firstname}}&nbsp;{{auth()->guard('admin')->user()->lastname}}</a></b>
+          <b><a href="#" class="d-block">{{auth()->guard('agent')->user()->firstname}}&nbsp;{{auth()->guard('agent')->user()->lastname}}</a></b>
         </div>
       </div>
 
@@ -207,44 +172,16 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
               </li>
 
               <li class="nav-item">
-                  <a href="{{url('admin/AboutUs')}}" class="nav-link">
+                  <a href="" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>About us</p>
                   </a>
               </li>
 
               <li class="nav-item">
-                <a href="{{url('admin/View/Service')}}" class="nav-link">
+                <a href="" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Service</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="{{url('admin/contact/mailbox')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Contact/mailbox <span class="float-right badge badge-primary">{{$mail_count}}</span> </p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Subscription</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Privacy policy</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Terms & Condition</p>
                 </a>
               </li>
 
@@ -254,9 +191,9 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
           <!--Citizen management-->
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-wrench"></i>
+              <i class="nav-icon fas fa-users"></i>
               <p>
-                Creation
+                Creations
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -264,17 +201,24 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
             <ul class="nav nav-treeview">
       
               <li class="nav-item">
-                  <a href="{{route('CreateTypeProperty')}}" class="nav-link">
+                  <a href="{{url('addcategory')}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Property type</p>
+                    <p>Add category</p>
                   </a>
               </li>
 
               <li class="nav-item">
-                  <a href="{{url('addcategory')}}" class="nav-link">
+                  <a href="" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Account</p>
+                    <p>Add Products</p>
                   </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add slider</p>
+                </a>
               </li>
 
             </ul>
@@ -286,7 +230,7 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
             <!--Arcive management-->
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-eye"></i>
+              <i class="nav-icon fas fa-folder"></i>
               <p>
                 Views
                 <i class="fas fa-angle-left right"></i>
@@ -296,23 +240,32 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
             <ul class="nav nav-treeview">
       
               <li class="nav-item">
-                <a href="{{url('admin/agent/list')}}/{{$id}}" class="nav-link">
+                <a href="{{url('category')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Owner's properties <span class="badge badge-info float-right">{{$agent_count}}</span></p>
+                  <p>Category</p>
                 </a>
               </li>
 
               <li class="nav-item">
                 <a href="" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Customers <span class="badge badge-info float-right">{{$customer_count}}</span></p>
+                  <p>Products</p>
                 </a>
               </li>
+
 
               <li class="nav-item">
                 <a href="" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Properties</p>
+                  <p>Customers</p>
+                </a>
+              </li>
+
+
+              <li class="nav-item">
+                <a href="{{url('orders')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Orders</p>
                 </a>
               </li>
 
@@ -326,7 +279,7 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
   </aside>
 
  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="background-color:#eee;">
    
       <main>
           @yield('content')
@@ -369,20 +322,6 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
 <script src="/style/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE../ App -->
 <script src="/style/dist/js/adminlte.js"></script>
-
-<script>
-      $(function () {
-        // Summernote
-        $('#summernote').summernote()
-
-        // CodeMirror
-        CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
-          mode: "htmlmixed",
-          theme: "monokai"
-        });
-      })
-</script>
-
 <!-- AdminLTE for demo purposes >
 <script src="../dist/js/demo.js"></script-->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->

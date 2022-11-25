@@ -15,12 +15,9 @@ class Customer extends Authenticatable
 
     use HasApiTokens, HasFactory, Notifiable;
     protected $fillable = [
-        'firstname',
-        'lastname',
-        'gender',
+        'fullname',
         'phone',
         'email',
-        'nationality',
         'password',
     ];
 
