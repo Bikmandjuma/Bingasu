@@ -59,7 +59,7 @@
           <!-- /.social-auth-links -->
 
           <p class="mb-1 text-center">
-            <i class="fa fa-lock-open"></i>&nbsp;<a href="{{route('Login')}}" class="text-center"> Back to Login</a>
+            <i class="fas fa-reply"></i>&nbsp;<a href="{{route('Login')}}" class="text-center"> Back to Login</a>
           </p>
         </div>
         <!-- /.login-card-body -->

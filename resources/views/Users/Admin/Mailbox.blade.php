@@ -147,7 +147,7 @@
                     		<?php
                     	}else{
                     		?>
-                    			<td class="mailbox-name"><a href="{{url('admin/read/mail')}}/{{$data->id}}/{{$data->email}}" style="color:blue;">{{$data->name}}</a></td>
+                    			<td class="mailbox-name"><a href="{{url('admin/read/mail')}}/{{Crypt::encryptString($data->email)}}/{{Crypt::encryptString($data->id)}}" style="color:blue;">{{$data->name}}</a></td>
                     		<?php
 
                     	}

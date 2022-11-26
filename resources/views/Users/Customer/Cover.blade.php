@@ -24,12 +24,12 @@ $admin_fname=Admin::get('firstname');
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="fonts/icomoon/style.css" />
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css" />
+    <link rel="stylesheet" href="../../fonts/icomoon/style.css" />
+    <link rel="stylesheet" href="../../fonts/flaticon/font/flaticon.css" />
 
-    <link rel="stylesheet" href="css/tiny-slider.css" />
-    <link rel="stylesheet" href="css/aos.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../../css/tiny-slider.css" />
+    <link rel="stylesheet" href="../../css/aos.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
     <style type="text/css">
       #type-category{
         margin-top:-50px;
@@ -60,22 +60,14 @@ $admin_fname=Admin::get('firstname');
         <div class="menu-bg-wrap">
           <div class="site-navigation">
             <a href="index.html" class="logo m-0 float-start">{{config('app.name','')}}</a>
-            <ul
-              class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end"
-            >
-              <li class="active"><a href="{{url('/')}}">Home</a></li>
-              <li class="has-children active">
-                <a href="#">Properties</a>
-                <ul class="dropdown">
-                  <li><a href="{{route('CustomerCreateAccount')}}"">Buy/Rent Property</a></li>
-                  <li><a href="{{route('AgentCreateAccount')}}"">Sell Property</a></li>
-                </ul>
-              </li>
-              <li class="active"><a href="{{url('Service')}}">Services</a></li>
-              <li class="active"><a href="{{url('About')}}">About</a></li>
-              <li class="active"><a href="{{url('Contact')}}">Contact Us</a></li>
-              <li class="active"><a href="{{route('AgentCreateAccount')}}"><b>Add property</b></a></li>
-              <li class="active"><a href="{{route('Login')}}">Account</a></li>
+            <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+              <li class="active"><a href="{{url('/')}}"><i class="icon-home"></i>&nbsp;Home</a></li>
+              <li class="active"><a href="#"><i class="icon-money"></i>&nbsp;Buy/Rent Property</a></li>
+              <li class="active"><a href="{{url('Service')}}"><i class="icon-wrench"></i>&nbsp;Services</a></li>
+              <li class="active"><a href="{{url('About')}}"><i class="icon-list-alt"></i>&nbsp;About</a></li>
+              <li class="active"><a href="{{url('Contact')}}"><i class="icon-phone"></i>&nbsp;Contact Us</a></li>
+              <li class="active"><a href="#"><i class="icon-user"></i>&nbsp;<b>{{auth()->guard('customer')->user()->fullname}}</b></a></li>
+              <li class="active"><a href="{{route('ClientLogout')}}"><i class="icon-lock"></i>&nbsp;Logout</a></li>
             </ul>
 
             <a
@@ -188,11 +180,11 @@ $admin_fname=Admin::get('firstname');
       </div>
     </div> -->
 
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/tiny-slider.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/navbar.js"></script>
-    <script src="js/counter.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="../../js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/tiny-slider.js"></script>
+    <script src="../../js/aos.js"></script>
+    <script src="../../js/navbar.js"></script>
+    <script src="../../js/counter.js"></script>
+    <script src="../../js/custom.js"></script>
   </body>
 </html>
