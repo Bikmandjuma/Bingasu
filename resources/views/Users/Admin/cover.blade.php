@@ -120,7 +120,7 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
 
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
-        <div data-toggle="dropdown" style="margin-top:5px; margin-right:50px; cursor:pointer;color:black;"><img src="{{URL::to('/')}}/style/dist/img/user.png" class="img-circle elevation-2" alt="User Image" style="width:25px;height:25px;border:2px solid white;margin-left:5px;">
+        <div data-toggle="dropdown" style="margin-top:5px; margin-right:0px; cursor:pointer;color:black;"><img src="{{URL::to('/')}}/style/dist/img/user.png" class="img-circle elevation-2" alt="User Image" style="width:25px;height:25px;border:2px solid white;margin-left:5px;">
         <p>Me&nbsp;<img src="{{URL::to('/')}}/images/down-arrow.png" style="width:15px;height:15px;"></p>
         </div>
 
