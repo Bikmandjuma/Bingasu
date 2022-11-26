@@ -20,6 +20,8 @@
       <div class="container">
         <div class="row justify-content-center align-items-center">
           <div class="col-lg-9 text-center">
+
+          
             <h1 class="heading" data-aos="fade-up">
               Easiest way to find your dream home
             </h1>

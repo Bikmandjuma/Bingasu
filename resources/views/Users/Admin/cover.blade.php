@@ -97,7 +97,7 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
-      <li class="nav-item">
+      <li class="nav-item" style="margin-top:0px;">
         <a class="nav-link" data-widget="navbar-search" href="#" role="button">
           <i class="fas fa-search"></i>
         </a>
@@ -120,9 +120,11 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
 
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
-        <div data-toggle="dropdown" style="margin-top:5px;cursor:pointer;color:black;"><img src="{{URL::to('/')}}/style/dist/img/user.png" class="img-circle elevation-2" alt="User Image" style="width:20px;height:20px;border:2px solid white;"> </div>
+        <div data-toggle="dropdown" style="margin-top:5px; margin-right:50px; cursor:pointer;color:black;"><img src="{{URL::to('/')}}/style/dist/img/user.png" class="img-circle elevation-2" alt="User Image" style="width:25px;height:25px;border:2px solid white;margin-left:5px;">
+        <p>Me&nbsp;<img src="{{URL::to('/')}}/images/down-arrow.png" style="width:15px;height:15px;"></p>
+        </div>
 
-        <div class="dropdown-menu dropdown-menu-right bg-info" style="margin-top:5px;margin-right:-65px;border:2px solid white">
+        <div class="dropdown-menu dropdown-menu-right bg-info" style="margin-top:5px;margin-right:-15px;border:2px solid white">
            <a href="{{url('account')}}" class="dropdown-item w3-hover-text-black w3-hover-text-black">
             <i class="fas fa-user mr-2"></i>
             Account
@@ -134,15 +136,10 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
           </a>
 
           <div class="dropdown-divider"></div>
-          <div class="dropdown-item w3-hover-text-black">
-                <a class="dropdown-item text-white" href="" onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();"><i class="fa fa-lock"></i>&nbsp;
-                        {{ __('Logout') }}
-                </a>
-
-                <form id="logout-form" action="{{route('Logout')}}" method="post" class="d-none">
-                   @csrf
-                </form>
+            <a href="" class="dropdown-item w3-hover-text-black w3-hover-text-black" data-toggle="modal" data-target="#logoutModal">
+              <i class="fas fa-lock mr-2"></i>
+             Sign out
+            </a>
           </div>
         </div>
 
@@ -331,6 +328,33 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
       <main>
           @yield('content')
       </main>
+
+          <!-- Small modal -->
+          <div class="modal" id="logoutModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+              <div class="modal-content">
+                <div class="modal-body text-left">
+                  <button type="button" class="close text-danger" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                  <h4>Logout&nbsp;<i class="fa fa-lock"></i></h4>
+                </div><hr>
+                <div class="modal-body">
+                  <p><i class="fa fa-question-circle"></i> Are you sure , you want to log-off ? <br /></p>
+                  <div class="actionsBtns">
+                          <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                          <a href="" class="btn btn-primary" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+
+                            <form id="logout-form" action="{{route('Logout')}}" method="post" class="d-none">
+                               @csrf
+                            </form>
+                            
+                            <button class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+      <!--end of logout-->
           
     </div>
     <!-- /.content -->
