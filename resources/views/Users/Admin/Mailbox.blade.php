@@ -152,8 +152,19 @@
 
                     	}
                     ?>
+
+                    <?php
+
+                        $mail=$data->message;
+                        $sms=substr($mail,0,15);
+                        if (strlen($mail) >= 15) {
+                            $message=$sms." . . . . .";
+                        }else{
+                            $message=$mail;
+                        }
+                    ?>
                    
-                    <td class="mailbox-subject"><b>{{$data->subject}}</b> - {{$data->message}}
+                    <td class="mailbox-subject"><b>{{$data->subject}}</b> - {{$message}}
                     </td>
                     <td class="mailbox-date">{{$data->sent_time}}</td>
                   </tr>

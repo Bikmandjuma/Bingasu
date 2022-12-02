@@ -77,6 +77,17 @@ Route::group(['prefix' => 'admin','middleware' => 'adminauth'], function () {
 	Route::get('read/mail/{mail}/{id}','App\Http\Controllers\AdminController@ReadMail');
 	Route::get('delete/mail/{id}','App\Http\Controllers\AdminController@DeleteMail');
 	Route::get('mail/trashed','App\Http\Controllers\AdminController@TrashedMail');
+	Route::get('customer/{id}','App\Http\Controllers\AdminController@CustomerList');
+	Route::get('information/{id}','App\Http\Controllers\AdminController@Myinformation')->name('admininfos');
+	Route::get('Editinfo/{id}','App\Http\Controllers\AdminController@AdminEditinfo')->name('AdminEditinfo');
+	Route::post('AdminUpdateInfo/{id}','App\Http\Controllers\AdminController@AdminUpdateInfo')->name('AdminUpdateInfo');
+
+	Route::get('AdminManagePassword/{id}','App\Http\Controllers\AdminController@AdminManagePassword')->name('AdminManagePassword');
+	Route::post('AdminChangePassword','App\Http\Controllers\AdminController@CreatePassword')->name('Adminchangepassword');
+	Route::get('profile/picture/{id}','App\Http\Controllers\AdminController@ShowProfile');
+	Route::post('create/password/','App\Http\Controllers\AdminController@CreateProfile')->name('AdminChangeProfile');
+
+	Route::get('agent/country/{country}','App\Http\Controllers\AdminController@AgentCountry');
 
 });
 
@@ -90,5 +101,8 @@ Route::group(['prefix' => 'agent','middleware' => 'agentauth'], function () {
 //Customer routing
 Route::group(['prefix' => 'customer','middleware' => 'customerauth'], function () {
 	Route::get('/dashboards/{id}','App\Http\Controllers\CustomerController@CustomerHome')->name('CustomerDashboard');
+
+	Route::get('/Contact/Admin','App\Http\Controllers\CustomerController@ContactAdmin')->name('ContactAdmin');
+
 });
 

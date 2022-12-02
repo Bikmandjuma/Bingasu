@@ -10,7 +10,6 @@
 
   <!--w3 style-->
   <link rel="stylesheet" href="/style/dist/w3/w3.css">
-
   <!-- Font Awesome -->
   <link rel="stylesheet" href="/style/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->

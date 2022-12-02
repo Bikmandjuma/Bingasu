@@ -59,6 +59,9 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
     <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
   <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
 
+  <!--Jquery-->
+  <script src="/style/ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
   <style type="text/css">
   .alert{padding: 15px;margin-bottom: 20px;border-radius: 4px;color: #fff;text-transform: uppercase;font-size: 12px}.alert_info{background-color: #4285f4;border: 2px solid #4285f4}button.close{-webkit-appearance: none;padding: 0;cursor: pointer;background: 0 0;border: 0}.close{font-size: 20px;color: #fff;opacity: 0.9;}.alert_success{background-color: #09c97f;border: 2px solid #09c97f}.alert_warning{background-color: #f8b15d;border: 2px solid #f8b15d}.alert_error{background-color: #f95668;border: 2px solid #f95668}.fade_info{background-color: #d9e6fb;border: 1px solid #4285f4}.fade_info .close{color: #4285f4}.fade_info strong{color: #4285f4}.fade_success{background-color: #c9ffe5;border: 1px solid #09c97f}.fade_success .close{color: #09c97f}.fade_success strong{color: #09c97f}.fade_warning{background-color: #fff0cc;border: 1px solid #f8b15d}.fade_warning .close{color: #f8b15d}.fade_warning strong{color: #f8b15d}.fade_error{background-color: #ffdbdb;border: 1px solid #f95668}.fade_error .close{color: #f95668}.fade_error strong{color: #f95668}
 
@@ -82,7 +85,7 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
 <div class="wrapper">
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand" style="margin-top:-25px;">
+  <nav class="main-header navbar navbar-expand" style="margin-top:-20px;">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -120,17 +123,18 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
 
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
-        <div data-toggle="dropdown" style="margin-top:5px; margin-right:0px; cursor:pointer;color:black;"><img src="{{URL::to('/')}}/style/dist/img/user.png" class="img-circle elevation-2" alt="User Image" style="width:25px;height:25px;border:2px solid white;margin-left:5px;">
-        <p>Me&nbsp;<img src="{{URL::to('/')}}/images/down-arrow.png" style="width:15px;height:15px;"></p>
+        <div data-toggle="dropdown" class="text-center" style="margin-top:5px; margin-right:0px; cursor:pointer;color:black;"><img src="{{asset('images/admin/'.auth()->guard('admin')->user()->image)}}" class="img-circle elevation-2" alt="User Image" style="width:20px;height:20px;border:2px solid skyblue;margin-left:5px;">
+<!--         <p style="font-size: 14px;">Me</p>
+ -->        <p style="font-size:13px;">Me&nbsp;<img src="{{URL::to('/')}}/images/down-arrow.png" style="width:12px;height:12px;"></p>
         </div>
 
         <div class="dropdown-menu dropdown-menu-right bg-info" style="margin-top:5px;margin-right:-15px;border:2px solid white">
-           <a href="{{url('account')}}" class="dropdown-item w3-hover-text-black w3-hover-text-black">
+           <a href="{{route('AdminManagePassword',$id)}}" class="dropdown-item w3-hover-text-black w3-hover-text-black">
             <i class="fas fa-user mr-2"></i>
-            Account
+            Password
           </a>
           <div class="dropdown-divider"></div>
-          <a href="" class="dropdown-item w3-hover-text-black w3-hover-text-black">
+          <a href="{{url('admin/profile/picture')}}/{{$id}}" class="dropdown-item w3-hover-text-black w3-hover-text-black">
             <i class="fas fa-image mr-2"></i>
            Profile picture
           </a>
@@ -143,9 +147,7 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
           </div>
         </div>
 
-      </li>
-      <li class="nav-item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-      
+      </li>      
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -163,7 +165,7 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-            <img src="{{URL::to('/')}}/style/dist/img/user.png" class="img-circle elevation-2" alt="User Image" style="width:40px;height:40px;border-radius:50%;">
+            <img src="{{asset('images/admin/'.auth()->guard('admin')->user()->image)}}" class="img-circle elevation-2" alt="User Image" style="width:40px;height:40px;border-radius:50%;border:2px solid white;">
         </div>
         <div class="info" style="font-style:20px;font-family:sans-serif;">
           <b><a href="#" class="d-block">{{auth()->guard('admin')->user()->firstname}}&nbsp;{{auth()->guard('admin')->user()->lastname}}</a></b>
@@ -224,27 +226,6 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
                 </a>
               </li>
 
-              <li class="nav-item">
-                <a href="" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Subscription</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Privacy policy</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Terms & Condition</p>
-                </a>
-              </li>
-
             </ul>
 
 
@@ -300,7 +281,7 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
               </li>
 
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{url('admin/customer')}}/{{$id}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Customers <span class="badge badge-info float-right">{{$customer_count}}</span></p>
                 </a>
@@ -310,6 +291,28 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
                 <a href="" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Properties</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+           <!--Setting-->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-cog"></i>
+              <p>
+                Settings
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+
+            <ul class="nav nav-treeview">
+      
+              <li class="nav-item">
+                <a href="{{url('admin/information')}}/{{$id}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>My info</p>
                 </a>
               </li>
 
@@ -371,7 +374,7 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
 </script>
 <!-- Bootstrap 4 -->
 <script src="/style/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="..style/jquery/jquery.min.js"></script>
+<script src="../style/jquery/jquery.min.js"></script>
 
 <!-- ChartJS -->
 <script src="/style/plugins/chart.js/Chart.min.js"></script>

@@ -3,7 +3,7 @@
 
 <?php
 	use App\Models\Agent;
-	$agents=Agent::all();
+	$agents=Agent::all()->where('nationality',$Country_Name);
 	$agent_count=collect($agents)->count();
 
 	$agent_nationality=Agent::all();
@@ -26,7 +26,7 @@
 	        <br>
 	        <br>
 			<div class="card">
-				<div class="card-header bg-info text-center" style="font-size:20px;"><span class="badge badge-light float-left">{{$agent_count}}</span>All Properties Owners</div>
+				<div class="card-header bg-info text-center" style="font-size:20px;"><span class="badge badge-light float-left">{{$agent_count}}</span> Properties owners from <b>{{$Country_Name}}</b></div>
 				<div class="card-body text-center" id="agents_data">
 					<table class="table table-striped table-bordered">
 						
@@ -46,7 +46,7 @@
 							<?php
 							$count=1;
 							?>
-							@foreach ($agent as $data)
+							@foreach ($Agents as $data)
 								<tr>
 									<td>{{$count++}}</td>
 									<td><img src="{{asset('images/agents/'.$data->image)}}" width="30" height="30" class="img-circle" style="border:1px solid skyblue;"></td>
@@ -78,7 +78,7 @@
 <!-- 					<div class="col-md-4"></div>
  -->					<div class="col-md-12">
 						<!--Pagination number-->
-						{{$agent->links()}}
+						{{$Agents->links()}}
 						</div>
 <!-- 					<div class="col-md-4"></div>
  -->				</div>

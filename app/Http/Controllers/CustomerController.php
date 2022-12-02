@@ -77,4 +77,8 @@ class CustomerController extends Controller
         return view('Users.Customer.home');
     }
 
+     public function ContactAdmin(){
+        return view('Users.Customer.contact');
+    }
+
 }

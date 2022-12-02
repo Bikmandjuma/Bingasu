@@ -65,7 +65,7 @@ $admin_fname=Admin::get('firstname');
               <li class="active"><a href="#"><i class="icon-money"></i>&nbsp;Buy/Rent Property</a></li>
               <li class="active"><a href="{{url('Service')}}"><i class="icon-wrench"></i>&nbsp;Services</a></li>
               <li class="active"><a href="{{url('About')}}"><i class="icon-list-alt"></i>&nbsp;About</a></li>
-              <li class="active"><a href="{{url('Contact')}}"><i class="icon-phone"></i>&nbsp;Contact Us</a></li>
+              <li class="active"><a href="{{url('customer/Contact/Admin')}}"><i class="icon-phone"></i>&nbsp;Contact Us</a></li>
               <li class="active"><a href="#"><i class="icon-user"></i>&nbsp;<b>{{auth()->guard('customer')->user()->fullname}}</b></a></li>
               <li class="active"><a href="{{route('ClientLogout')}}"><i class="icon-lock"></i>&nbsp;Logout</a></li>
             </ul>

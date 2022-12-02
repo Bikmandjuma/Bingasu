@@ -8,7 +8,10 @@ use App\Models\Agent;
 use App\Models\AboutUs;
 use App\Models\PropertyType;
 use App\Models\Contact;
+use App\Models\Customer;
+use App\Models\Admin;
 use Crypt;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -142,5 +145,99 @@ class AdminController extends Controller
         $mail=Contact::all()->where('deleted','deleted');
         return view('Users.Admin.TrashedMail',compact('mail'));
     }
+
+     public function CustomerList($id){
+        $customer=Customer::paginate(3);
+        return view('Users.Admin.CustomerList',compact('customer'));
+    }
+
+    public function Myinformation(){
+        $info=Admin::all();
+        return view('Users.Admin.MyInformation',compact('info'));
+    }
+
+    public function AdminEditinfo($id){
+        $ids=Crypt::decryptString($id);
+        $data=Admin::find($ids);
+        return view('Users.Admin.EditInformation',compact('data'));
+    }
+
+    public function AdminUpdateInfo(Request $request,$id){
+        //encription of admin id
+        $rand=rand(100000,1000000);
+        $ids=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
+
+        $data =Admin::find($id);
+        $data->firstname = $request->firstname;
+        $data->lastname = $request->lastname;
+        $data->phone = $request->phone;
+        $data->gender = $request->gender;
+        $data->email = $request->email;
+        $data->nationality = $request->nationality;
+        $data->save();
+        return redirect(route('admininfos',$ids))->with('status','data Updated Successfully');
+    }
+
+
+    public function AdminManagePassword(){
+        return view('Users.Admin.Password');
+    }
+
+    public function CreatePassword(Request $request){
+           # Validation
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed|min:8|max:100',
+            'new_password_confirmation' => 'required',
+        ],[
+            'new_password_confirmation.required' => 'Confirm new password field is required',
+        ]);
+
+        #Match The Old Password
+        if(!Hash::check($request->old_password, auth()->guard('admin')->user()->password)){
+            return back()->with("error", "Old Password Doesn't match!");
+        }
+
+        #Update the new Password
+        Admin::whereId(auth()->guard('admin')->user()->id)->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+        return back()->with("status", "Password changed successfully!");
+    }
+
+    public function ShowProfile($id){
+        return view('Users.Admin.ProfilePicture');
+    }
+
+    public function CreateProfile(Request $request){
+        $id=auth()->guard('admin')->user()->id;
+        
+        $request->validate([
+            'profile_picture' => 'mimes:jpg,jpeg,png,pdf',
+        ],[
+            'profile_picture.mimes'=>'profile picture must be in format of jpg,jpeg,png or pdf',
+        ]);
+
+
+        $file= $request->file('profile_picture');
+        $filename= date('YmdHi').$file->getClientOriginalName();
+        $extenstion = $file->getClientOriginalExtension();
+        $file-> move(public_path('images/admin/'), $filename);
+        
+        $profile=Admin::where('id',$id)->update(['image' => $filename]);
+        
+        if ($profile) {
+            return redirect()->back()->with('profile_changed','profile changed  successfully !');
+        }else{
+            return redirect()->back()->with('profile_error','profile picture must be in format of jpg,jpeg,png or pdf');
+        }   
+    }
+
+    public function AgentCountry($country){
+        $country_name=Crypt::decryptString($country);
+        $agent=Agent::where('nationality',$country_name)->paginate(1);
+        return view('Users.Admin.AgentCountry',['Agents' => $agent,'Country_Name' => $country_name]);
+    }
+
 
 }

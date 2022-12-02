@@ -51,8 +51,8 @@
               </div>
               <div class="card-body p-0">
                 <ul class="nav nav-pills flex-column">
-                  <li class="nav-item active">
-                    <a href="{{url('admin/contact/mailbox')}}" class="nav-link text-primary"  style="background-color: #eee;">
+                  <li class="nav-item">
+                    <a href="{{url('admin/contact/mailbox')}}" class="nav-link">
                       <i class="fas fa-inbox"></i> Inbox
                       <span class="badge bg-primary float-right">{{$mail_count}}</span>
                     </a>
@@ -63,8 +63,8 @@
                       <span class="badge bg-success float-right">0</span>
                     </a>
                   </li>
-                  <li class="nav-item">
-                    <a href="{{url('admin/mail/trashed')}}" class="nav-link">
+                  <li class="nav-item active">
+                    <a href="{{url('admin/mail/trashed')}}" class="nav-link text-primary"  style="background-color: #eee;">
                       <i class="far fa-trash-alt"></i> Trash
                       <span class="badge bg-danger float-right">{{$trashedmail_count}}</span>
                     </a>
@@ -139,8 +139,18 @@
 
                     	}
                     ?>
+
+                    <?php
+                        $mail=$data->message;
+                        $sms=substr($mail,0,15);
+                        if (strlen($mail) >= 15) {
+                            $message=$sms." . . . . .";
+                        }else{
+                            $message=$mail;
+                        }
+                    ?>
                    
-                    <td class="mailbox-subject"><b>{{$data->subject}}</b> - {{$data->message}}
+                    <td class="mailbox-subject"><b>{{$data->subject}}</b> - {{$message}}
                     </td>
                     <td class="mailbox-date">{{$data->sent_time}}</td>
                   </tr>

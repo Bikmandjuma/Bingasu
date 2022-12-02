@@ -142,7 +142,7 @@
                <!-- Modal content-->
                <div class="modal-content">
                  <div class="modal-header bg-info" style="text-align: center;">
-                   <h2>Reply <b>{{$data->name}}</b></h2>
+                   <h2>Reply to <b>{{$data->name}}</b></h2>
                  </div>
                  <div class="modal-body">
                    <form class="form-group" method="POST" action="">
