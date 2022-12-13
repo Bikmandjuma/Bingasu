@@ -125,7 +125,7 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
       <li class="nav-item dropdown">
         <div data-toggle="dropdown" class="text-center" style="margin-top:5px; margin-right:0px; cursor:pointer;color:black;"><img src="{{asset('images/admin/'.auth()->guard('admin')->user()->image)}}" class="img-circle elevation-2" alt="User Image" style="width:20px;height:20px;border:2px solid skyblue;margin-left:5px;">
 <!--         <p style="font-size: 14px;">Me</p>
- -->        <p style="font-size:13px;">Me&nbsp;<img src="{{URL::to('/')}}/images/down-arrow.png" style="width:12px;height:12px;"></p>
+ -->        <p style="font-size:13px;"><b>Me</b>&nbsp;<img src="{{URL::to('/')}}/images/down-arrow.png" style="width:10px;height:10px;"></p>
         </div>
 
         <div class="dropdown-menu dropdown-menu-right bg-info" style="margin-top:5px;margin-right:-15px;border:2px solid white">
@@ -206,21 +206,21 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
               </li>
 
               <li class="nav-item">
-                  <a href="{{url('admin/AboutUs')}}" class="nav-link">
+                  <a href="{{url('admin/AboutUs')}}/{{$id}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>About us</p>
                   </a>
               </li>
 
               <li class="nav-item">
-                <a href="{{url('admin/View/Service')}}" class="nav-link">
+                <a href="{{url('admin/View/Service')}}/{{$id}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Service</p>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="{{url('admin/contact/mailbox')}}" class="nav-link">
+                <a href="{{url('admin/contact/mailbox')}}/{{$id}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Contact/mailbox <span class="float-right badge badge-primary">{{$mail_count}}</span> </p>
                 </a>
@@ -242,7 +242,7 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
             <ul class="nav nav-treeview">
       
               <li class="nav-item">
-                  <a href="{{route('CreateTypeProperty')}}" class="nav-link">
+                  <a href="{{route('CreateTypeProperty',$id)}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Property type</p>
                   </a>

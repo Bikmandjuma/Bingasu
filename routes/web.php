@@ -65,15 +65,15 @@ Route::group(['prefix' => 'admin','middleware' => 'adminauth'], function () {
 	Route::get('agent/list/{id}','App\Http\Controllers\AdminController@AgentList');
 
 	Route::get('deleteAgentData/{id}','App\Http\Controllers\AdminController@DeleteAgentData');
-	Route::get('AboutUs','App\Http\Controllers\AdminController@AboutUs');
+	Route::get('AboutUs/{id}','App\Http\Controllers\AdminController@AboutUs');
 	Route::post('Create/AboutUs','App\Http\Controllers\AdminController@CreateAboutUs')->name('CreateAboutUs');
 	Route::get('view/agent/{id}','App\Http\Controllers\AdminController@ViewAgentInfo');
 
 	Route::post('Create/propertiesTypes','App\Http\Controllers\AdminController@PropertyType')->name('CreatePropertyType');
 	
-	Route::get('propertiesTypes','App\Http\Controllers\AdminController@PropertyTypes')->name('CreateTypeProperty');
-	Route::get('View/Service','App\Http\Controllers\AdminController@ViewService');
-	Route::get('contact/mailbox','App\Http\Controllers\AdminController@ViewMailBox')->name('mailbox');
+	Route::get('propertiesTypes/{id}','App\Http\Controllers\AdminController@PropertyTypes')->name('CreateTypeProperty');
+	Route::get('View/Service/{id}','App\Http\Controllers\AdminController@ViewService');
+	Route::get('contact/mailbox/{id}','App\Http\Controllers\AdminController@ViewMailBox')->name('mailbox');
 	Route::get('read/mail/{mail}/{id}','App\Http\Controllers\AdminController@ReadMail');
 	Route::get('delete/mail/{id}','App\Http\Controllers\AdminController@DeleteMail');
 	Route::get('mail/trashed','App\Http\Controllers\AdminController@TrashedMail');

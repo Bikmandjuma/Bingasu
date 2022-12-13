@@ -36,7 +36,7 @@ class AdminController extends Controller
     	return redirect()->back()->with('delete','Agent deleted succesfully !');
     }
 
-    public function AboutUs(){
+    public function AboutUs($id){
         return view('Users.Admin.AboutUs');
     }
 
@@ -104,15 +104,15 @@ class AdminController extends Controller
 
     }
 
-    public function PropertyTypes(){
+    public function PropertyTypes($id){
         return view('Users.Admin.PropertyType');
     }
 
-    public function ViewService(){
+    public function ViewService($id){
         return view('Users.Admin.Service');
     }
 
-    public function ViewMailBox(){
+    public function ViewMailBox($id){
         $mail=Contact::all()->where('deleted','!=','deleted');
         return view('Users.Admin.Mailbox',compact('mail'));
     }
@@ -235,7 +235,7 @@ class AdminController extends Controller
 
     public function AgentCountry($country){
         $country_name=Crypt::decryptString($country);
-        $agent=Agent::where('nationality',$country_name)->paginate(1);
+        $agent=Agent::where('nationality',$country_name)->paginate(5);
         return view('Users.Admin.AgentCountry',['Agents' => $agent,'Country_Name' => $country_name]);
     }
 
