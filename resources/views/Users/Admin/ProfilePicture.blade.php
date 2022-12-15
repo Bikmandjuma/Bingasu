@@ -51,7 +51,7 @@
       <div class="modal-body">
         <form action="{{route('AdminChangeProfile')}}" method="POST" enctype="multipart/form-data">
             @csrf            
-            <img id="blah" style="width:120px;height:120px;"/><br>
+            <img id="blah" style="width:120px;height:120px;border:1px solid gray;border-radius:5px;" src="{{URL::to('/')}}/images/admin/user.png" /><br>
             <input name="profile_picture" type="file" accept="image/*" id="imgInp" class="form-control" required><br>
             <button class="btn btn-primary" type="submit" name="submit"><i class="fa fa-save"></i>&nbsp; Save changes</button>
         </form>

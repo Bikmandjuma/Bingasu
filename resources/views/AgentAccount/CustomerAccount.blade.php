@@ -1,5 +1,6 @@
 @extends('AgentAccount.cover')
 @section('content')
+<br>
   <div id="login-page" style="background-color:lightgrey;">
 
       <?php
@@ -99,7 +100,7 @@
         </div>
 
         <p class="mb-1 text-center">
-            <i class="fa fa-user"></i>&nbsp;<a href="{{route('Login')}}" class="text-center">Already have account !</a>
+            <i class="fa fa-user"></i>&nbsp;<a href="{{route('Login')}}" class="text-center">Already have account &nbsp;<span style="color: black;">Login here</span> !</a>
         </p>
 
       </div>

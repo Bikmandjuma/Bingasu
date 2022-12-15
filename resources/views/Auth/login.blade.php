@@ -1,6 +1,6 @@
 @extends('Auth.cover')
 @section('content')
-
+<br>
 <div id="login-page">
     
     @if(session('fail'))

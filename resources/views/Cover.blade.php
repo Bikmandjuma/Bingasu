@@ -54,19 +54,19 @@ $admin_fname=Admin::get('firstname');
             <ul
               class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end"
             >
-              <li class="active"><a href="{{url('/')}}">Home</a></li>
+              <li class="active"><a href="{{url('/')}}"><i class="icon-house"></i> Home</a></li>
               <li class="has-children active">
                 <a href="#">Properties</a>
                 <ul class="dropdown">
-                  <li><a href="{{route('CustomerCreateAccount')}}"">Buy/Rent Property</a></li>
-                  <li><a href="{{route('AgentCreateAccount')}}"">Sell Property</a></li>
+                  <li><a href="{{route('CustomerCreateAccount')}}" target="_blank">Buy/Rent Property</a></li>
+                  <li><a href="{{route('AgentCreateAccount')}}" target="_blank">Sell Property</a></li>
                 </ul>
               </li>
               <li class="active"><a href="{{url('Service')}}">Services</a></li>
               <li class="active"><a href="{{url('About')}}">About</a></li>
               <li class="active"><a href="{{url('Contact')}}">Contact Us</a></li>
-              <li class="active"><a href="{{route('AgentCreateAccount')}}"><b>Add property</b></a></li>
-              <li class="active"><a href="{{route('Login')}}">Account</a></li>
+              <li class="active"><a href="{{route('AgentCreateAccount')}}" target="_blank"><b>Add property</b></a></li>
+              <li class="active"><a href="{{route('Login')}}" target="_blank">Account</a></li>
             </ul>
 
             <a

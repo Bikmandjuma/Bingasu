@@ -71,8 +71,8 @@
       </div>
     </div>
 
-    &nbsp;<a href="{{url('/')}}"><button class="btn btn-info"><i class="fas fa-reply"></i>&nbsp;Homepage</button></a>
-
+<!--     &nbsp;<a href="{{url('/')}}"><button class="btn btn-info"><i class="fas fa-reply"></i>&nbsp;Homepage</button></a>
+ -->
     <main>
       @yield('content')
     </main>
