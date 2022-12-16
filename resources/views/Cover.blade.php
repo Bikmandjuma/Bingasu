@@ -54,19 +54,19 @@ $admin_fname=Admin::get('firstname');
             <ul
               class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end"
             >
-              <li class="active"><a href="{{url('/')}}"><i class="icon-house"></i> Home</a></li>
+              <li class="active"><a href="{{url('/')}}"><i class="icon-home"></i> Home</a></li>
               <li class="has-children active">
-                <a href="#">Properties</a>
+                <a href="#"><i class="icon-list-alt"></i>&nbsp;Properties</a>
                 <ul class="dropdown">
-                  <li><a href="{{route('CustomerCreateAccount')}}" target="_blank">Buy/Rent Property</a></li>
-                  <li><a href="{{route('AgentCreateAccount')}}" target="_blank">Sell Property</a></li>
+                  <li><a href="{{route('CustomerCreateAccount')}}" target="_blank"><i class="icon-money"></i>&nbsp;Buy/Rent Property</a></li>
+                  <li><a href="{{route('AgentCreateAccount')}}" target="_blank"><i class="icon-money"></i>&nbsp;Sell Property</a></li>
                 </ul>
               </li>
-              <li class="active"><a href="{{url('Service')}}">Services</a></li>
-              <li class="active"><a href="{{url('About')}}">About</a></li>
-              <li class="active"><a href="{{url('Contact')}}">Contact Us</a></li>
-              <li class="active"><a href="{{route('AgentCreateAccount')}}" target="_blank"><b>Add property</b></a></li>
-              <li class="active"><a href="{{route('Login')}}" target="_blank">Account</a></li>
+              <li class="active"><a href="{{url('Service')}}"><i class="icon-wrench"></i>&nbsp;Services</a></li>
+              <li class="active"><a href="{{url('About')}}"><i class="icon-list-alt"></i>&nbsp;About Us</a></li>
+              <li class="active"><a href="{{url('Contact')}}"><i class="icon-phone"></i>&nbsp;Contact Us</a></li>
+              <li class="active"><a href="{{route('AgentCreateAccount')}}" target="_blank"><i class="icon-plus"></i>&nbsp;<b>Add property</b></a></li>
+              <li class="active"><a href="{{route('Login')}}" target="_blank"><i class="icon-user"></i>&nbsp;Account</a></li>
             </ul>
 
             <a

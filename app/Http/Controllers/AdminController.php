@@ -10,6 +10,7 @@ use App\Models\PropertyType;
 use App\Models\Contact;
 use App\Models\Customer;
 use App\Models\Admin;
+use App\Models\Service;
 use Crypt;
 use Illuminate\Support\Facades\Hash;
 
@@ -110,6 +111,13 @@ class AdminController extends Controller
 
     public function ViewService($id){
         return view('Users.Admin.Service');
+    }
+
+    public function AddServiceData(Request $request){
+        $service=new Service;
+        $service->name= $request->content;
+        $service->save();
+        return redirect()->back()->with('service_added','Service data added well !');
     }
 
     public function ViewMailBox($id){

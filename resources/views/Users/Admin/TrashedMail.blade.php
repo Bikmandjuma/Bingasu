@@ -6,6 +6,10 @@
 
 <?php
 
+  //Contact mailbox
+  $all_mails=Contact::all();
+  $all_mail_count=collect($all_mails)->count();
+
 	//Contact mailbox
 	$mails=Contact::all()->where('deleted',null)->where('unread',null);
 	$mail_count=collect($mails)->count();
@@ -14,6 +18,11 @@
   //Contact trashed mail
   $Trashed_mail=Contact::all()->where('deleted','deleted');
   $trashedmail_count=collect($Trashed_mail)->count();
+
+  //encription of admin id
+  $rand=rand(100000,1000000);
+  $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
+
 ?>
 
     <!-- Content Header (Page header) -->
@@ -45,14 +54,14 @@
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
+                    <span class="badge bg-info">{{$all_mail_count}}</span>&nbsp;<i class="fas fa-minus"></i>
                   </button>
                 </div>
               </div>
               <div class="card-body p-0">
                 <ul class="nav nav-pills flex-column">
                   <li class="nav-item">
-                    <a href="{{url('admin/contact/mailbox')}}" class="nav-link">
+                    <a href="{{url('admin/contact/mailbox')}}/{{$id}}" class="nav-link">
                       <i class="fas fa-inbox"></i> Inbox
                       <span class="badge bg-primary float-right">{{$mail_count}}</span>
                     </a>

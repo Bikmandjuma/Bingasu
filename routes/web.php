@@ -88,6 +88,7 @@ Route::group(['prefix' => 'admin','middleware' => 'adminauth'], function () {
 	Route::post('create/password/','App\Http\Controllers\AdminController@CreateProfile')->name('AdminChangeProfile');
 
 	Route::get('agent/country/{country}','App\Http\Controllers\AdminController@AgentCountry');
+	Route::post('AddServiceData','App\Http\Controllers\AdminController@AddServiceData')->name('AddServiceData');
 
 });
 

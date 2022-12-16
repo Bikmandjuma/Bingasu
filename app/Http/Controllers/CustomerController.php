@@ -30,7 +30,6 @@ class CustomerController extends Controller
         ]);
 
         if(auth::guard('customer')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-
             $rand=rand(10000,100000);
             $id=Crypt::encryptString((auth()->guard('customer')->user()->id.$rand));
             return redirect(route('CustomerDashboard',$id));

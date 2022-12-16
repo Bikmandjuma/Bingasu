@@ -10,6 +10,7 @@ $admin_fname=Admin::get('firstname');
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <title>Bingasu home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Untree.co" />
     <link rel="shortcut icon" href="favicon.png" />
@@ -64,10 +65,28 @@ $admin_fname=Admin::get('firstname');
               <li class="active"><a href="{{url('/')}}"><i class="icon-home"></i>&nbsp;Home</a></li>
               <li class="active"><a href="#"><i class="icon-money"></i>&nbsp;Buy/Rent Property</a></li>
               <li class="active"><a href="{{url('Service')}}"><i class="icon-wrench"></i>&nbsp;Services</a></li>
-              <li class="active"><a href="{{url('About')}}"><i class="icon-list-alt"></i>&nbsp;About</a></li>
+              <li class="active"><a href="{{url('About')}}"><i class="icon-list-alt"></i>&nbsp;About Us</a></li>
+              <li class="active"><a href="#"><i class="icon-list-alt"></i>&nbsp;Booking <span style="padding:2px 2px 2px 2px;background-color:red;color:white;border-radius:5px;justify-content: center;">0</span> </a></li>
               <li class="active"><a href="{{url('customer/Contact/Admin')}}"><i class="icon-phone"></i>&nbsp;Contact Us</a></li>
-              <li class="active"><a href="#"><i class="icon-user"></i>&nbsp;<b>{{auth()->guard('customer')->user()->fullname}}</b></a></li>
-              <li class="active"><a href="{{route('ClientLogout')}}"><i class="icon-lock"></i>&nbsp;Logout</a></li>
+              <li class="has-children active">
+                <?php
+                  $name=auth()->guard('customer')->user()->fullname;
+                  $Cust_name=substr($name,0,10);
+                  if (strlen($name) >= 10) {
+                      $fullname=$Cust_name."...";
+                  }else{
+                      $fullname=$name;
+                  }
+                ?>
+                <a href="#"><i class="icon-user"></i>&nbsp;<b>{{$fullname}}</b></a>                
+                <ul class="dropdown">
+                  <li><a href="#" target="_blank"><i class="icon-user"></i>&nbsp;Account</a></li>
+                  <li><a href="#" target="_blank"><i class="icon-key"></i>&nbsp;Password</a></li>
+                  <li class="active"><a href="{{route('ClientLogout')}}"><i class="icon-lock"></i>&nbsp;Logout</a></li>
+                </ul>
+              </li>
+
+              
             </ul>
 
             <a

@@ -8,6 +8,11 @@
 @endphp
 
 <?php
+
+  //Contact mailbox
+  $all_mails=Contact::all();
+  $all_mail_count=collect($all_mails)->count();
+
 	$mails=Contact::all()->where('deleted',null)->where('unread',null);
 	$mail_count=collect($mails)->count();
 
@@ -45,7 +50,7 @@
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
+                    <span class="badge bg-info">{{$all_mail_count}}</span>&nbsp;<i class="fas fa-minus"></i>
                   </button>
                 </div>
               </div>

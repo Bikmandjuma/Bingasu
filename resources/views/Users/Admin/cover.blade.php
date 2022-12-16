@@ -326,7 +326,7 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
   </aside>
 
  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper"  style="background-color:lightgrey;">
    
       <main>
           @yield('content')
