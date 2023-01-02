@@ -32,6 +32,8 @@
 
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="/style/dist/css/mobiscroll.javascript.min.css">
+    <script src="/style/dist/js/mobiscroll.javascript.min.js"></script>
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>

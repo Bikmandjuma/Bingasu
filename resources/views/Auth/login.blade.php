@@ -3,6 +3,13 @@
 <br>
 <div id="login-page">
     
+    @if(session('AgentDeleteAccount'))
+        <br>
+        <div class="alert alert_error" style="text-align: center;"> <button aria-hidden="true" data-dismiss="alert" class="close" type="button">&times;</button>
+          <strong>{{session('AgentDeleteAccount')}}</strong>
+        </div>
+    @endif
+
     @if(session('fail'))
         <br>
         <div class="alert alert_error" style="text-align: center;"> <button aria-hidden="true" data-dismiss="alert" class="close" type="button">&times;</button>
@@ -16,6 +23,7 @@
           <strong>{{Session::get('register')}}</strong>
         </div><br>
     @endif
+
 
     <div class="login-box">
       <!-- /.login-logo -->

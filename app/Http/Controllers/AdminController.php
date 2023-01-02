@@ -11,6 +11,7 @@ use App\Models\Contact;
 use App\Models\Customer;
 use App\Models\Admin;
 use App\Models\Service;
+use App\Models\AgentDeleteAccount;
 use Crypt;
 use Illuminate\Support\Facades\Hash;
 
@@ -155,7 +156,7 @@ class AdminController extends Controller
     }
 
      public function CustomerList($id){
-        $customer=Customer::paginate(3);
+        $customer=Customer::paginate(8);
         return view('Users.Admin.CustomerList',compact('customer'));
     }
 
@@ -245,6 +246,11 @@ class AdminController extends Controller
         $country_name=Crypt::decryptString($country);
         $agent=Agent::where('nationality',$country_name)->paginate(5);
         return view('Users.Admin.AgentCountry',['Agents' => $agent,'Country_Name' => $country_name]);
+    }
+
+     public function AgentDeleteAccount($id){
+        $agent=AgentDeleteAccount::paginate(5);
+        return view('Users.Admin.AgentDeleteAccount',compact('agent'));
     }
 
 

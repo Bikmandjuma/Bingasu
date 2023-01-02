@@ -2,15 +2,11 @@
 @section('content')
 
 <?php
-	use App\Models\Agent;
 	use App\Models\AgentDeleteAccount;
-	$agents=Agent::all();
-	$agent_count=collect($agents)->count();
+	$AgentAccount=AgentDeleteAccount::all();
+	$Agent_Count=collect($AgentAccount)->count();
 
-	$AgentDeleteAccount=AgentDeleteAccount::all();
-	$agent_delete_count=collect($AgentDeleteAccount)->count();
-
-	$agent_nationality=Agent::all();
+	$agent_nationality=AgentDeleteAccount::all();
 	$agent_unique=$agent_nationality->unique('nationality');
 	$agent_nat_count=collect($agent_unique)->count();
 
@@ -30,12 +26,13 @@
 	              <strong>{{session('delete')}}</strong>
 	            </div><br>
 	        @endif
+
 	        <button class="btn btn-success" data-toggle="modal" data-target="#CountryModal"><i class="fa fa-home"></i>&nbsp;Countries&nbsp;<span class="badge badge-light">{{$agent_nat_count}}</span> </button>
-	        <button class="btn btn-danger float-right"><a href="{{route('AgentDeleteAccounts',$id)}}" style="color: white;"><i class="fa fa-users"></i>&nbsp;Agents delete account&nbsp;<span class="badge badge-light">{{$agent_delete_count}}</span></a></button>
+	  
 	        <br>
 	        <br>
 			<div class="card">
-				<div class="card-header bg-info text-center" style="font-size:20px;"><span class="badge badge-light float-left">{{$agent_count}}</span>All Properties Owners</div>
+				<div class="card-header bg-success text-center" style="font-size:20px;"><span class="badge badge-light float-left">{{$Agent_Count}}</span>Agents Deleted their Accounts</div>
 				<div class="card-body text-center" id="agents_data">
 					<table class="table table-striped table-bordered">
 						
@@ -71,7 +68,7 @@
 								<tr class="text-center">
 									<?php
 									
-										if ($agent_count == 0) {
+										if ($Agent_Count == 0) {
 										  	echo "<td colspan='7'>No data found !</td>";
 										}
 
@@ -119,7 +116,7 @@
                        		@foreach($agent_unique as $country)
 
                        			@php
-                       				$countr=Agent::all()->where('nationality',$country->nationality);
+                       				$countr=AgentDeleteAccount::all()->where('nationality',$country->nationality);
                        				$count_country=collect($countr)->count();
                        			@endphp
 

@@ -73,7 +73,7 @@ $id=Crypt::encryptString(auth()->guard('agent')->user()->id.$rand);
       display: none;
     };
 
-     #my_data p{
+    #my_data p{
         display: inline-block;
     }
 
@@ -85,7 +85,7 @@ $id=Crypt::encryptString(auth()->guard('agent')->user()->id.$rand);
 <div class="wrapper bg-info">
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand" style="margin-top:-20px;">
+  <nav class="main-header navbar navbar-expand" style="margin-top:-22px;">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item text-white">
@@ -94,7 +94,7 @@ $id=Crypt::encryptString(auth()->guard('agent')->user()->id.$rand);
     </ul>
 
     <div class="rowtext-center">
-      <div class="col-md-12">Admin Panel</div>
+      <div class="col-md-12">Owner's properties Panel</div>
     </div>
 
     <!-- Right navbar links -->
@@ -102,13 +102,13 @@ $id=Crypt::encryptString(auth()->guard('agent')->user()->id.$rand);
       <!-- Navbar Search -->
       <li class="nav-item" style="margin-top:0px;">
         <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search"></i>
+          <i class="fas fa-search" style="color: white;"></i>
         </a>
         <div class="navbar-search-block">
           <form class="form-inline">
             <div class="input-group input-group-sm">
               <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-              <div class="input-group-append">
+              <div class="input-group-append bg-danger">
                 <button class="btn btn-navbar" type="submit" style="color:white;">
                   <i class="fas fa-search" style="color:white;"></i>
                 </button>
@@ -123,18 +123,18 @@ $id=Crypt::encryptString(auth()->guard('agent')->user()->id.$rand);
 
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
-        <div data-toggle="dropdown" class="text-center" style="margin-top:5px; margin-right:0px; cursor:pointer;color:black;"><img src="{{asset('images/admin/'.auth()->guard('agent')->user()->image)}}" class="img-circle elevation-2" alt="User Image" style="width:20px;height:20px;border:2px solid white;margin-left:5px;">
+        <div data-toggle="dropdown" class="text-center" style="margin-top:5px; margin-right:0px; cursor:pointer;color:black;"><img src="{{asset('images/agents/'.auth()->guard('agent')->user()->image)}}" class="img-circle elevation-2" alt="User Image" style="width:20px;height:20px;border:2px solid white;margin-left:5px;">
 <!--         <p style="font-size: 14px;">Me</p>
  -->        <p style="font-size:13px;color: white;"><b>Me</b>&nbsp;<img src="{{URL::to('/')}}/images/down-arrow.png" style="width:10px;height:10px;"></p>
         </div>
 
         <div class="dropdown-menu dropdown-menu-right bg-info" style="margin-top:5px;margin-right:-15px;border:2px solid white">
-           <a href="{{route('AdminManagePassword',$id)}}" class="dropdown-item w3-hover-text-black w3-hover-text-black">
-            <i class="fas fa-user mr-2"></i>
+           <a href="{{route('AgentManagePassword',$id)}}" class="dropdown-item w3-hover-text-black w3-hover-text-black">
+            <i class="fas fa-key mr-2"></i>
             Password
           </a>
           <div class="dropdown-divider"></div>
-          <a href="{{url('admin/profile/picture')}}/{{$id}}" class="dropdown-item w3-hover-text-black w3-hover-text-black">
+          <a href="{{url('agent/profile/pictures')}}/{{$id}}" class="dropdown-item w3-hover-text-black w3-hover-text-black">
             <i class="fas fa-image mr-2"></i>
            Profile picture
           </a>
@@ -165,7 +165,7 @@ $id=Crypt::encryptString(auth()->guard('agent')->user()->id.$rand);
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-            <img src="{{asset('images/admin/'.auth()->guard('agent')->user()->image)}}" class="img-circle elevation-2" alt="User Image" style="width:40px;height:40px;border-radius:50%;border:2px solid white;">
+            <img src="{{asset('images/agents/'.auth()->guard('agent')->user()->image)}}" class="img-circle elevation-2" alt="User Image" style="width:40px;height:40px;border-radius:50%;border:2px solid white;">
         </div>
         <div class="info" style="font-style:20px;font-family:sans-serif;">
           <b><a href="#" class="d-block">{{auth()->guard('agent')->user()->firstname}}&nbsp;{{auth()->guard('agent')->user()->lastname}}</a></b>
@@ -191,7 +191,7 @@ $id=Crypt::encryptString(auth()->guard('agent')->user()->id.$rand);
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-bars"></i>
               <p>
-                Homepage
+                Testing
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -201,102 +201,12 @@ $id=Crypt::encryptString(auth()->guard('agent')->user()->id.$rand);
               <li class="nav-item">
                   <a href="{{route('homepage',$id)}}" class="nav-link">
                     <i class="fas fa-home nav-icon"></i>
-                    <p>Home</p>
+                    <p>Test</p>
                   </a>
-              </li>
-
-              <li class="nav-item">
-                  <a href="{{url('admin/AboutUs')}}/{{$id}}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>About us</p>
-                  </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="{{url('admin/View/Service')}}/{{$id}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Service</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="{{url('admin/contact/mailbox')}}/{{$id}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Contact/mailbox <span class="float-right badge badge-primary">{{$mail_count}}</span> </p>
-                </a>
-              </li>
-
-            </ul>
-
-
-          <!--Citizen management-->
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-wrench"></i>
-              <p>
-                Creation
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-
-            <ul class="nav nav-treeview">
-      
-              <li class="nav-item">
-                  <a href="{{route('CreateTypeProperty',$id)}}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Property type</p>
-                  </a>
-              </li>
-
-              <li class="nav-item">
-                  <a href="{{url('addcategory')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Account</p>
-                  </a>
-              </li>
-
-            </ul>
-
-
-          </li>
-
-
-            <!--Arcive management-->
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-eye"></i>
-              <p>
-                Views
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-
-            <ul class="nav nav-treeview">
-      
-              <li class="nav-item">
-                <a href="{{url('admin/agent/list')}}/{{$id}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Owner's properties <span class="badge badge-info float-right">{{$agent_count}}</span></p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="{{url('admin/customer')}}/{{$id}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Customers <span class="badge badge-info float-right">{{$customer_count}}</span></p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Properties</p>
-                </a>
               </li>
 
             </ul>
           </li>
-
            <!--Setting-->
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -310,7 +220,7 @@ $id=Crypt::encryptString(auth()->guard('agent')->user()->id.$rand);
             <ul class="nav nav-treeview">
       
               <li class="nav-item">
-                <a href="{{url('admin/information')}}/{{$id}}" class="nav-link">
+                <a href="{{url('agent/informations')}}/{{$id}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>My info</p>
                 </a>

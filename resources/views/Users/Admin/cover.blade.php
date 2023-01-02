@@ -130,7 +130,7 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
 
         <div class="dropdown-menu dropdown-menu-right bg-info" style="margin-top:5px;margin-right:-15px;border:2px solid white">
            <a href="{{route('AdminManagePassword',$id)}}" class="dropdown-item w3-hover-text-black w3-hover-text-black">
-            <i class="fas fa-user mr-2"></i>
+            <i class="fas fa-key mr-2"></i>
             Password
           </a>
           <div class="dropdown-divider"></div>

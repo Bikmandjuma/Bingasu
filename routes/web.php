@@ -85,10 +85,11 @@ Route::group(['prefix' => 'admin','middleware' => 'adminauth'], function () {
 	Route::get('AdminManagePassword/{id}','App\Http\Controllers\AdminController@AdminManagePassword')->name('AdminManagePassword');
 	Route::post('AdminChangePassword','App\Http\Controllers\AdminController@CreatePassword')->name('Adminchangepassword');
 	Route::get('profile/picture/{id}','App\Http\Controllers\AdminController@ShowProfile');
-	Route::post('create/password/','App\Http\Controllers\AdminController@CreateProfile')->name('AdminChangeProfile');
+	Route::post('create/profile/','App\Http\Controllers\AdminController@CreateProfile')->name('AdminChangeProfile');
 
 	Route::get('agent/country/{country}','App\Http\Controllers\AdminController@AgentCountry');
 	Route::post('AddServiceData','App\Http\Controllers\AdminController@AddServiceData')->name('AddServiceData');
+	Route::get('Delete/Account/{id}','App\Http\Controllers\AdminController@AgentDeleteAccount')->name('AgentDeleteAccounts');
 
 });
 
@@ -96,6 +97,12 @@ Route::group(['prefix' => 'admin','middleware' => 'adminauth'], function () {
 Route::group(['prefix' => 'agent','middleware' => 'agentauth'], function () {
 	
 	Route::get('/Home/{id}','App\Http\Controllers\AgentController@AgentHome')->name('AgentDashboard');
+	Route::get('informations/{id}','App\Http\Controllers\AgentController@Myinformation')->name('AgentInfo');
+	Route::get('AgentManagePassword/{id}','App\Http\Controllers\AgentController@AgentManagePassword')->name('AgentManagePassword');
+	Route::post('AgentChangePassword','App\Http\Controllers\AgentController@CreatePassword')->name('Agentchangepassword');
+	Route::get('profile/pictures/{id}','App\Http\Controllers\AgentController@ShowProfile');
+	Route::post('create/profiles/','App\Http\Controllers\AgentController@CreateProfile')->name('AgentChangeProfile');
+	Route::get('Delete/Account','App\Http\Controllers\AgentController@AgentDeleteAccount')->name('AgentDeleteAccount');
 
 });
 
