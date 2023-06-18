@@ -80,4 +80,64 @@ class CustomerController extends Controller
         return view('Users.Customer.contact');
     }
 
+    public function ManageAccount(){
+        return view('Users.Customer.account');
+    }
+
+    public function UpdateFullName(Request $request){
+        $customer_id=auth()->guard('customer')->user()->id;
+        $data =Customer::find($customer_id);
+        $data->fullname = $request->fullname;
+        $data->save();
+
+        return redirect()->back()->with('fullname_changed','Fullname  changed well !');
+
+    }
+
+    public function UpdatePhone(Request $request){
+        $customer_id=auth()->guard('customer')->user()->id;
+        $data =Customer::find($customer_id);
+        $data->phone = $request->phone;
+        $data->save();
+
+        return redirect()->back()->with('phone_changed','Phone changed well !');
+
+    }
+
+      public function UpdateEmail(Request $request){
+        $request->validate([
+            'email' => 'unique:customers,email'
+        ]);
+        $customer_id=auth()->guard('customer')->user()->id;
+        $data =Customer::find($customer_id);
+        $data->email = $request->email;
+        $data->save();
+
+        return redirect()->back()->with('Email_changed','Email changed well !');
+
+    }
+
+     public function CreatePassword(Request $request){
+        # Validation
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed|min:8|max:100',
+        ]);
+
+
+        #Match The Old Password
+        if(!Hash::check($request->old_password, auth()->guard('customer')->user()->password)){
+            return back()->with("error", "Old Password Doesn't match!");
+        }
+
+
+        #Update the new Password
+        Customer::whereId(auth()->guard('customer')->user()->id)->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+        return back()->with("status", "Password changed successfully!");
+    }
+
+
+
 }

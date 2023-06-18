@@ -156,7 +156,7 @@ class AdminController extends Controller
     }
 
      public function CustomerList($id){
-        $customer=Customer::paginate(8);
+        $customer=Customer::paginate(10);
         return view('Users.Admin.CustomerList',compact('customer'));
     }
 

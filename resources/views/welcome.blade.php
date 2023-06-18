@@ -641,8 +641,7 @@
               Let's find home that's perfect for you
             </h2>
             <p class="text-black-50">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-              enim pariatur similique debitis vel nisi qui reprehenderit.
+               Finding dream home is not easy we can help you to find a perfect dream home which is cool for you ,you are on right site on punctual time .
             </p>
           </div>
         </div>

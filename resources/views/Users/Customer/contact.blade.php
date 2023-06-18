@@ -91,14 +91,18 @@
                   <input
                     type="text"
                     class="form-control"
-                    name="name" placeholder="Your Name" value="{{$name}}">
+                    name="name" placeholder="Your Name" value="{{$name}}"
+                    disabled
+                  >
                     <span style="color:red;">@error('name') {{$message}} @enderror</span>
                 </div>
                 <div class="col-6 mb-3">
                   <input
                     type="email"
                     class="form-control"
-                    placeholder="Your Email" name="email" value="{{$email}}">
+                    placeholder="Your Email" name="email" value="{{$email}}"
+                    disabled
+                  >
                     <span style="color:red;">@error('email') {{$message}} @enderror</span>
                 </div>
                 <div class="col-12 mb-3">
@@ -115,18 +119,13 @@
                     cols="30"
                     rows="4"
                     class="form-control"
-                    placeholder="Message"
+                    placeholder="Typing message . . . . . "
                     name="message"></textarea>
                     <span style="color:red;">@error('message') {{$message}} @enderror</span>
                 </div>
 
-                <div class="col-12">
-                  <input
-                    type="submit"
-                    value="Send Message"
-                    class="btn btn-primary"
-                  />
-                </div>
+                <div class="col-12 text-center">
+                  <button type="submit" class="btn btn-primary">Send&nbsp;<i class="icon-paper-plane"></i></button>
               </div>
             </form>
           </div>

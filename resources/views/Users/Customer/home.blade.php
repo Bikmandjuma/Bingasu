@@ -34,7 +34,7 @@
               <input
                 type="text"
                 class="form-control px-4"
-                placeholder="Your ZIP code or City. e.g. New York"
+                placeholder="Ex:kacyiru or kimihurura . . "
               />
               <button type="submit" class="btn btn-primary">Search</button>
             </form>
@@ -68,7 +68,7 @@
               <div class="property-slider">
                 <div class="property-item">
                   <a href="property-single.html" class="img">
-                    <img src="images/img_1.jpg" alt="Image" class="img-fluid" />
+                    <img src="../../images/img_1.jpg" alt="Image" class="img-fluid" />
                   </a>
 
                   <div class="property-content">
@@ -106,7 +106,7 @@
 
                 <div class="property-item">
                   <a href="property-single.html" class="img">
-                    <img src="images/img_2.jpg" alt="Image" class="img-fluid" />
+                    <img src="../../images/img_2.jpg" alt="Image" class="img-fluid" />
                   </a>
 
                   <div class="property-content">
@@ -145,7 +145,7 @@
 
                 <div class="property-item">
                   <a href="property-single.html" class="img">
-                    <img src="images/img_3.jpg" alt="Image" class="img-fluid" />
+                    <img src="../../images/img_3.jpg" alt="Image" class="img-fluid" />
                   </a>
 
                   <div class="property-content">
@@ -185,7 +185,7 @@
 
                 <div class="property-item">
                   <a href="property-single.html" class="img">
-                    <img src="images/img_4.jpg" alt="Image" class="img-fluid" />
+                    <img src="../../images/img_4.jpg" alt="Image" class="img-fluid" />
                   </a>
 
                   <div class="property-content">
@@ -225,7 +225,7 @@
 
                 <div class="property-item">
                   <a href="property-single.html" class="img">
-                    <img src="images/img_5.jpg" alt="Image" class="img-fluid" />
+                    <img src="../../images/img_5.jpg" alt="Image" class="img-fluid" />
                   </a>
 
                   <div class="property-content">
@@ -265,7 +265,7 @@
 
                 <div class="property-item">
                   <a href="property-single.html" class="img">
-                    <img src="images/img_6.jpg" alt="Image" class="img-fluid" />
+                    <img src="../../images/img_6.jpg" alt="Image" class="img-fluid" />
                   </a>
 
                   <div class="property-content">
@@ -305,7 +305,7 @@
 
                 <div class="property-item">
                   <a href="property-single.html" class="img">
-                    <img src="images/img_7.jpg" alt="Image" class="img-fluid" />
+                    <img src="../../images/img_7.jpg" alt="Image" class="img-fluid" />
                   </a>
 
                   <div class="property-content">
@@ -345,7 +345,7 @@
 
                 <div class="property-item">
                   <a href="property-single.html" class="img">
-                    <img src="images/img_8.jpg" alt="Image" class="img-fluid" />
+                    <img src="../../images/img_8.jpg" alt="Image" class="img-fluid" />
                   </a>
 
                   <div class="property-content">
@@ -385,7 +385,7 @@
 
                 <div class="property-item">
                   <a href="property-single.html" class="img">
-                    <img src="images/img_1.jpg" alt="Image" class="img-fluid" />
+                    <img src="../../images/img_1.jpg" alt="Image" class="img-fluid" />
                   </a>
 
                   <div class="property-content">
@@ -527,7 +527,7 @@
             <div class="item">
               <div class="testimonial">
                 <img
-                  src="images/person_1-min.jpg"
+                  src="../../images/person_1-min.jpg"
                   alt="Image"
                   class="img-fluid rounded-circle w-25 mb-4"
                 />
@@ -554,7 +554,7 @@
             <div class="item">
               <div class="testimonial">
                 <img
-                  src="images/person_2-min.jpg"
+                  src="../../images/person_2-min.jpg"
                   alt="Image"
                   class="img-fluid rounded-circle w-25 mb-4"
                 />
@@ -581,7 +581,7 @@
             <div class="item">
               <div class="testimonial">
                 <img
-                  src="images/person_3-min.jpg"
+                  src="../../images/person_3-min.jpg"
                   alt="Image"
                   class="img-fluid rounded-circle w-25 mb-4"
                 />
@@ -608,7 +608,7 @@
             <div class="item">
               <div class="testimonial">
                 <img
-                  src="images/person_4-min.jpg"
+                  src="../../images/person_4-min.jpg"
                   alt="Image"
                   class="img-fluid rounded-circle w-25 mb-4"
                 />
@@ -644,15 +644,14 @@
               Let's find home that's perfect for you
             </h2>
             <p class="text-black-50">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-              enim pariatur similique debitis vel nisi qui reprehenderit.
+              Finding dream home is not easy we can help you to find a perfect dream home which is cool for you ,you are on right site on punctual time .
             </p>
           </div>
         </div>
         <div class="row justify-content-between mb-5">
           <div class="col-lg-7 mb-5 mb-lg-0 order-lg-2">
             <div class="img-about dots">
-              <img src="images/hero_bg_3.jpg" alt="Image" class="img-fluid" />
+              <img src="../../images/hero_bg_3.jpg" alt="Image" class="img-fluid" />
             </div>
           </div>
           <div class="col-lg-4">
@@ -775,17 +774,15 @@
               Our Agents
             </h2>
             <p class="text-black-50">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-              enim pariatur similique debitis vel nisi qui reprehenderit totam?
-              Quod maiores.
+              Real estate agents , these are our agents who will help anyone need help of getting a dream home through the contacts .
             </p>
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
+          <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" id="agent_info">
             <div class="h-100 person">
               <img
-                src="images/person_1-min.jpg"
+                src="../../images/person_1-min.jpg"
                 alt="Image"
                 class="img-fluid"
               />
@@ -816,10 +813,10 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
+          <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" id="agent_info">
             <div class="h-100 person">
               <img
-                src="images/person_2-min.jpg"
+                src="../../images/person_2-min.jpg"
                 alt="Image"
                 class="img-fluid"
               />
@@ -850,10 +847,10 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
+          <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" id="agent_info">
             <div class="h-100 person">
               <img
-                src="images/person_3-min.jpg"
+                src="../../images/person_3-min.jpg"
                 alt="Image"
                 class="img-fluid"
               />

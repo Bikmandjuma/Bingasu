@@ -266,7 +266,7 @@ $id=Crypt::encryptString(auth()->guard('admin')->user()->id.$rand);
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-eye"></i>
               <p>
-                Views
+                Owners,Customers,Prop
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>

@@ -115,11 +115,11 @@
               </div>
               <!-- /.mailbox-controls -->
               <div class="mailbox-read-message">
-                <p>Hello {{$data->name}},</p>
+                <p>Hello {{auth()->guard('admin')->user()->firstname}} {{auth()->guard('admin')->user()->lastname}},</p>
 
                 <p>&nbsp;&nbsp;&nbsp;{{$data->message}}.</p>
 
-                <p>Thanks,<br> {{$data->name}} </p>
+                <p>Your sincerily,<br> {{$data->name}} </p>
               </div>
               <!-- /.mailbox-read-message -->
             </div>

@@ -112,5 +112,11 @@ Route::group(['prefix' => 'customer','middleware' => 'customerauth'], function (
 
 	Route::get('/Contact/Admin','App\Http\Controllers\CustomerController@ContactAdmin')->name('ContactAdmin');
 
+	Route::get('/View/Account','App\Http\Controllers\CustomerController@ManageAccount')->name('ManageAccount');
+	Route::post('/update/Account/Fullname','App\Http\Controllers\CustomerController@UpdateFullName')->name('UpdateFullName');
+	Route::post('/update/Account/Phone','App\Http\Controllers\CustomerController@UpdatePhone')->name('UpdatePhone');
+	Route::post('/update/Account/Email','App\Http\Controllers\CustomerController@UpdateEmail')->name('UpdateEmail');
+	Route::post('/Account/CreatePassword','App\Http\Controllers\CustomerController@CreatePassword')->name('CreatePassword');
+
 });
 
