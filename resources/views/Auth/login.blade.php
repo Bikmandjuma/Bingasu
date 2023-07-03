@@ -11,8 +11,7 @@
     @endif
 
     @if(session('fail'))
-        <br>
-        <div class="alert alert_error" style="text-align: center;"> <button aria-hidden="true" data-dismiss="alert" class="close" type="button">&times;</button>
+        <div class="alert alert_error" style="text-align: center;"> <button aria-hidden="true" data-dismiss="alert" class="close" type="button" style="margin-top:-3px;">&nbsp;&nbsp;&nbsp;&times;</button>
           <strong>{{session('fail')}}</strong>
         </div>
     @endif

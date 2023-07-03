@@ -25,7 +25,7 @@
 						
 						<thead>
 							<tr>
-								<th>N<sup>o</sup></th>
+								<th>N<sup><u>o</u></sup></th>
 								<th>Fullname</th>
 								<th>Phone</th>
 								<th>Email</th>
@@ -57,7 +57,8 @@
 										
 									</td>
 									<td>
-										<a href="{{url('admin/view/customer')}}/{{Crypt::encryptString($data->id)}}"><i class="fa fa-eye"></i></a>
+										<!--{{url('admin/view/customer')}}/{{Crypt::encryptString($data->id)}}-->
+										<a href="#"><i class="fa fa-eye" id="{{$data->id}}" onclick="getCustomerId()"></i></a>
 									</td>
 								</tr> 
 							@endforeach
@@ -89,5 +90,38 @@
 		</div>
 		<div class="col-md-1"></div>
 	</div>
+
+	<form>
+		<label>Days</label>
+		<input type="text" name="day" id="day" class="form-control"><br>
+		<label>Night</label>
+		<input type="text" name="night" id="night" class="form-control"><br>
+		<span id="generate" class="btn btn-info" onclick="GetValue()">Generate</span>
+	</form>
+
+	<script type="text/javascript">
+		$(function(){
+			$('#generate').on('click',function(){
+				var days = $("#day").val();
+				var nights = $("#night").val();
+				var base_url = $('#base').val();
+
+				$.ajax({
+					type: 'get',
+					url: base_url,
+					data: {'dayss':days,'nightss':nights},
+					success: function( data ){
+						console.log(data);
+					}
+				});
+			});
+		});
+	  
+	</script>
+
+	<?php
+
+	// echo $_POST['dayss']." ".$_POST['nightss'];
 	
+	?>
 @endsection

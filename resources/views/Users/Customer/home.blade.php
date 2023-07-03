@@ -1,6 +1,10 @@
 @extends('Users.Customer.Cover')
 @section('content')
 
+    @if(session('welcome_customer'))
+        <script>toastr.success("Welcome {{auth()->guard('customer')->user()->fullname}}");</script>
+    @endif
+
     <div class="hero">
       <div class="hero-slide">
         <div

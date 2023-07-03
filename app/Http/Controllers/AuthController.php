@@ -59,7 +59,7 @@ class AuthController extends Controller{
 
             $rand=rand(10000,100000);
             $id=Crypt::encryptString((auth()->guard('customer')->user()->id.$rand));
-            return redirect(route('CustomerDashboard',$id));
+            return redirect(route('CustomerDashboard',$id))->with('welcome_customer','welcome auth customer');
 
         }else{
 

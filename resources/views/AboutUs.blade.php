@@ -1,8 +1,6 @@
 @extends('Cover')
 @section('content')
 
-
-
     <div
       class="hero page-inner overlay"
       style="background-image: url('images/hero_bg_3.jpg')"

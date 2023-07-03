@@ -65,8 +65,8 @@ $admin_fname=Admin::get('firstname');
               <li class="active"><a href="{{url('Service')}}"><i class="icon-wrench"></i>&nbsp;Services</a></li>
               <li class="active"><a href="{{url('About')}}"><i class="icon-list-alt"></i>&nbsp;About Us</a></li>
               <li class="active"><a href="{{url('Contact')}}"><i class="icon-phone"></i>&nbsp;Contact Us</a></li>
-              <li class="active"><a href="{{route('AgentCreateAccount')}}" target="_blank"><i class="icon-plus"></i>&nbsp;<b>Add property</b></a></li>
-              <li class="active"><a href="{{route('Login')}}" target="_blank"><i class="icon-user"></i>&nbsp;Account</a></li>
+              <li class="active"><a href="{{route('AgentCreateAccount')}}"><i class="icon-plus"></i>&nbsp;<b>Add property</b></a></li>
+              <li class="active"><a href="{{route('Login')}}"><i class="icon-user"></i>&nbsp;Account</a></li>
             </ul>
 
             <a
